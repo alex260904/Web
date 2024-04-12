@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Alex Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: white;
+            color: black;
+            text-align: center;
+            padding: 10px;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product,
+        .widget {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin: 18px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .price {
+            color: #e44d26;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: -5px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        nav {
+            background-color: #eee;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav li {
+            margin: 0;
+            padding: 10px;
+        }
+
+        img {
+            padding: 10px;
+
+            width: 100%;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 50px;
+            height: 70px;
+            align-items: center;
+
+        }
+
+        .menu {
+            flex: 3;
+            display: flex;
+        }
+
+        .menu li {
+            padding: 0 12px;
+            position: relative;
+        }
+
+        .menu li:hover .sub-menu {
+            visibility: visible;
+            top: 30px;
+        }
+
+        .sub-menu {
+            position: absolute;
+            width: 150px;
+            border: 1px solid #ccc;
+            padding: 10px 0 10px 20px;
+            visibility: hidden;
+            top: 50px;
+            transition: 0.3s;
+
+        }
+
+        .sub-menu ul {
+            padding-left: 20px;
+
+        }
+
+        .sub-menu ul a {
+            font-weight: normal !important;
+            font-size: 12px !important;
+        }
+
+        .menu li a {
+            font-size: 25px;
+            font-weight: bold ! important;
+            display: block;
+            line-height: 20px;
+
+        }
+
+        .others {
+            flex: 1;
+            display: flex;
+        }
+
+        .others li {
+            padding: 0 12px;
+        }
+
+        .others li:first-child {
+            position: relative;
+        }
+
+        .others li:first-child input {
+            width: 100%;
+            position: relative;
+            border: none;
+            border-bottom: 1px solid #333;
+
+        }
+
+        .others li:first-child i {
+            position: absolute;
+            right: 10px;
+        }
+
+        .fr-searchform .fr-searchform-btn .fr-icon {
+            width: 17px;
+            height: 17px;
+            background-size: 17px 17px;
+            font-size: 17px !important;
+        }
+
+        #slider-container {
+            width: 100%;
+            overflow: hidden;
+        }
+
+        #slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        #prev,
+        #next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            border-radius: 5px;
+            user-select: none;
+        }
+
+    .phai {
+        margin-left: 550px;
+    }
+        /* Style for cart icon */
+        .cart-icon {
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Style for user icon */
+        .user-icon {
+            font-size: 18px;
+            color: #333;
+        }
+
+        #search-container {
+            text-align: center;
+            margin: 20px;
+        }
+
+        #search-input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .logo a {
+            display: inline-block;
+        }
+
+        .logo img {
+            width: 100px;
+            height: auto;
+        }
+        .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu li:last-child {
+    margin-right: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.menu li a:hover {
+    color: #007bff;
+}
+    </style>
+</head>
+
+<body>
+
+
+    <header>
+        <h1></h1>
+    </header>
+    <div class="navigation">
+        <a href="main.html"> 
+            <img src="img/btec.png" alt="Your Store Logo">
+        </a>
+<ul class="menu">
+        
+                
+                
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="profilepage.html"><i class="fas fa-user"></i> User</a></li>
+                <li><a href="#" onclick="confirmLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                <li><a href="contact.html">Feedback</a></li>
+                </ul>
+    
+
+
+    
+    </div>
+    <div id="slider-container">
+        <div id="slider">
+            <div class="slide"><img src="img/uniqlo.jpg"
+                    alt="">
+            </div>
+            <div class="slide"><img src="img/uniqlo1.jpg"
+                    alt="">
+            </div>
+            <div class="slide"><img src="img/uniqlo2.jpg"
+                    alt="">
+            </div>
+            <div class="slide"><img src="img/uniqlo1.jpg"
+                    alt="">
+            </div>
+        </div>
+
+        
+
+
+
+        <header>
+            <div class="menu">
+                
+                <li class="phai"><a href="contact.html">Feedback</a></li>
+                <li><a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart</a></li>
+                <li><a href="profilepage.html"><i class="fas fa-user"></i> User</a></li>
+                <li><a href="#" onclick="confirmLogout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </div>
+
+    </div>
+    </header>
+
+  
+
+
+    <section>
+        <!-- Product Section -->
+        <a href="new-page.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao1.avif" alt="Product 1">
+                <h2>Product 1</h2>
+                <p>Studio Ghibli Long Sleeve Sweatshirt <span class="price"></span></p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a>
+
+        <a href="new-page1.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao2.avif" alt="Product 2">
+                <h2>Product 2</h2>
+                <p>PEANUTS Long Sleeve Sweatshirts
+                    <span class="price"></span>
+                </p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a>
+
+        <a href="new-page2.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao3.avif" alt="Product 3">
+                <h2>Product 3</h2>
+                <p>Long Zip Hooded Sweatshirt <span class="price"></span></p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a>
+
+        <a href="new-page3.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao4.avif" alt="Product 4">
+                <h2>Product 4</h2>
+                <p>Long Sleeve KaKi Jacket <span class="price"></span></p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a>
+
+
+        <a href="new-page4.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao5.avif" alt="Product 5">
+                <h2>Product 5</h2>
+                <p>Blue Long Sleeve Shirt <span class="price"></span></p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a>
+
+
+        <a href="new-page5.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao6.avif" alt="Product 6">
+                <h2>Product 6</h2>
+                <p>White Fabric Pants <span class="price"></span></p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a>
+
+        <a href="new-page6.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao7.avif" alt="Product 7">
+                <h2>Product 7</h2>
+                <p>Straight-leg trousers <span class="price"></span></p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a>
+
+
+        <a href="new-page7.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao8.avif" alt="Product 8">
+                <h2>Product 8</h2>
+                <p>Sweater <span class="price"></span></p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a>
+
+        <a href="new-page8.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao9.avif" alt="Product 9">
+                <h2>Product 9</h2>
+                <p>AirSense Long Jacket <span class="price"></span></p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a>
+
+
+        <a href="new-page9.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao10.avif" alt="Product 10">
+                <h2>Product 10</h2>
+                <p>Gray Long Sleeve Sweater . <span class="price"></span></p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a>
+
+<!-- 
+        <a href="new-page10.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao11.avif" alt="Product 11">
+                <h2>Product 11</h2>
+                <p>Áo Nỉ Dài Tay Xám Nhám <span class="price"></span></p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a>
+
+        <a href="new-page11.html" onclick="chuyenTrang()">
+            <div class="product" id="product1">
+                <img src="img/ao12.avif" alt="Product 12">
+                <h2>Product 12</h2>
+                <p>Áo Thun Giả Lông Cừu Co Giãn Cổ 3 Phân Dài Tay. <span class="price"></span></p>
+                <button onclick="addToCart('Product', 20.00)">Add to Cart</button>
+            </div>
+        </a> -->
+
+
+
+        <!-- Add more product divs as needed -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Alex Store. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function chuyenTrang() {
+            // Sử dụng window.location.href để chuyển tới trang mới
+            window.location.href = "new-page.html";
+        }
+
+        function addToCart(productName, price) {
+            // Implement logic để thêm sản phẩm vào giỏ hàng (nếu cần)
+            console.log(`Added ${productName} to the cart. Price: $${price}`);
+        }
+        function addToCart(productName, price) {
+            // Store the selected product information in session storage
+            sessionStorage.setItem('selectedProduct', JSON.stringify({ name: productName, price: price }));
+
+            // Redirect to the cart page
+            window.location.href = 'cart.html';
+        }
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("slide");
+
+            if (slideIndex >= slides.length) {
+                slideIndex = 0;
+            }
+
+            if (slideIndex < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex].style.display = "block";
+        }
+
+        function nextSlide() {
+            slideIndex++;
+            showSlides();
+        }
+
+        function prevSlide() {
+            slideIndex--;
+            showSlides();
+        }
+
+        setInterval(nextSlide, 3000); // Automatic sliding every 3 seconds
+        function confirmLogout() {
+            // Hiển thị cảnh báo hoặc thực hiện các bước kiểm tra trước khi đăng xuất
+            var isConfirmed = confirm("Bạn có chắc muốn đăng xuất?");
+
+            if (isConfirmed) {
+                // Thực hiện đăng xuất
+                logout();
+            }
+        }
+
+        function logout() {
+
+            window.location.href = 'login.html';
+        }
+
+
+    </script>
+</body>
+
+</html>
+
+</body>
+
+</html>

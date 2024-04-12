@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Company Name</h1>
+    </header>
+
+    <section id="mainContent">
+        <!-- Main content of your website goes here -->
+        <p>Welcome to our website!</p>
+        <button onclick="logout()">Logout</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Function to perform logout
+        function logout() {
+            // Clear user session or data
+            // In this example, we'll clear a user token from local storage
+            localStorage.removeItem('userToken');
+
+            // Redirect to the login page or homepage
+            window.location.href = 'login.html'; // Replace 'login.html' with your actual login page
+        }
+
+        // Check if the user is logged in (you can customize this part based on your authentication mechanism)
+        // In this example, we'll check if a user token is present in local storage
+        function checkLoginStatus() {
+            const userToken = localStorage.getItem('userToken');
+            if (!userToken) {
+                // Redirect to the login page if the user is not logged in
+                window.location.href = 'login.html'; // Replace 'login.html' with your actual login page
+            }
+        }
+
+        // Call the function to check login status when the page loads
+        checkLoginStatus();
+    </script>
+
+</body>
+</html>

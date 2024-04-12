@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Product Page</title>
+    <style>
+       body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .product-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            max-width: 300px;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 20px;
+        }
+
+        .product-details {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .product-description {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .color-swatch {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .size-dropdown,
+        .quantity-input {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: gray;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buy-button:hover {
+            background-color: red;
+        }
+
+        .product-info {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .collapsible-button {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            margin-bottom: -15px;
+        }
+
+        .collapsible-content {
+            display: none;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+       
+        footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section {
+    max-width: 300px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+form {
+    margin-top: 10px;
+}
+
+input {
+    padding: 8px;
+}
+
+button {
+    padding: 8px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.logo {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        .logo a {
+            display: inline-block;
+        }
+
+        .logo img {
+            width: 100px; /* Đặt kích thước chiều rộng mong muốn */
+            height: auto; /* Giữ tỷ lệ khung hình */
+        }
+        .product-reviews{
+            border: 1px solid #333; 
+            margin: 20px 0;
+        }
+        .thumbnails {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .thumbnail-image {
+            width: 100%; /* Kích thước ảnh nhỏ */
+            cursor: pointer;
+            margin-bottom: 10px; /* Khoảng cách giữa các ảnh nhỏ */
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="logo">
+        <a href="main.html">
+            <img src="img/logo.png" alt="Your Store Logo">
+        </a>
+    </div>
+
+
+
+    <div class="product-container">
+        <div class="thumbnails">
+            <img src="img/aoni.avif" alt="Thumbnail 1" class="thumbnail-image" onclick="changeImage('main-image', 'thumbnail1.jpg')">
+            <img src="img/aoni1.avif" alt="Thumbnail 2" class="thumbnail-image" onclick="changeImage('main-image', 'thumbnail2.jpg')">
+            <img src="img/aoni2.avif" alt="Thumbnail 3" class="thumbnail-image" onclick="changeImage('main-image', 'thumbnail3.jpg')">
+            <img src="img/aoni3.avif" alt="Thumbnail 3" class="thumbnail-image" onclick="changeImage('main-image', 'thumbnail3.jpg')">
+            <img src="img/aoni4.avif" alt="Thumbnail 3" class="thumbnail-image" onclick="changeImage('main-image', 'thumbnail3.jpg')">
+            
+           
+        </div>
+        <img class="product-image" src="img/ao7.avif" alt="Product Image">
+        <div class="product-details">
+            <div class="product-title">Quần Jeans Ống Suông</div>
+            <p class="product-description">
+                An original collection that expresses the Studio Ghibli universe in various ways.
+            </p>
+            <span class="fr-icon active review_star" style="font-size: 15px; color: gold;">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </span>
+            <!-- Product Price -->
+            <p id="product-price">$25.99</p>
+
+            <!-- Color Swatches -->
+            <div>
+                <div class="color-swatch" style="background-color: black;"></div>
+                <div class="color-swatch" style="background-color: gray;"></div>
+                <div class="color-swatch" style="background-color: orange;"></div>
+                <!-- Add more color swatches as needed -->
+            </div>
+
+            <!-- Size Dropdown -->
+            <form>
+                <label for="size-xs"><input type="radio" id="size-xs" name="size" value="XS"> XS</label>
+                <label for="size-s"><input type="radio" id="size-s" name="size" value="S"> S</label>
+                <label for="size-m"><input type="radio" id="size-m" name="size" value="M"> M</label>
+                <label for="size-l"><input type="radio" id="size-l" name="size" value="L"> L</label>
+                <label for="size-xl"><input type="radio" id="size-xl" name="size" value="XL"> XL</label>
+            </form>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" min="1" value="1">
+
+
+            <!-- Add to Cart Button -->
+            <button class="buy-button" onclick="addToCart()">Add to Cart</button>
+        </div>
+    </div>
+
+    <div class="product-info">
+        <!-- Your existing product info content -->
+
+        <h3 class="collapsible-button" onclick="toggleContent('product-details')">Tổng quan</h3>
+        <div class="collapsible-content" id="product-details">
+            <p>Những thiết kế lấy cảm hứng từ hình ảnh Snoopy và những người bạn đang chơi bóng chày trong bộ truyện tranh
+                Peanuts nổi tiếng.<br>
+                Bộ sưu tập khắc họa những hình ảnh quen thuộc của Snoopy và những người bạn, gồm có cả Charlie Brown,
+                quản lý đội
+                bóng kiêm vị trí ném bóng, với niềm đam mê dành cho bóng chày.</p>
+        </div>
+
+        <h3 class="collapsible-button" onclick="toggleContent('product-detail')">Chất liệu</h3>
+        <div class="collapsible-content" id="product-detail">
+            <p>Mã sản phẩm 464505<br>
+                Xin lưu ý mã số nhận diện của sản phẩm có thể có sự khác biệt, kể cả khi đó là cùng một mặt hàng.</p>
+            <p>VẢI<br>
+                Thân: 100% Bông/ Bo: 78% Bông, 22% Polyeste</p>
+            <p>HƯỚNG DẪN GIẶT<br>
+                Giặt máy nước lạnh, Không giặt khô, Sấy khô ở nhiệt độ thấp</p>
+            <p>- Những hình ảnh sản phẩm có thể bao gồm những màu không có sẵn.</p>
+        </div>
+
+        <h3 class="collapsible-button" onclick="toggleContent('product-detailS')">Chính sách hoàn trả</h3>
+        <div class="collapsible-content" id="product-detailS">
+            Chính sách hoàn trả<br>
+            Nếu bạn không hài lòng với sản phẩm, chúng tôi chấp nhận đổi hoặc trả lại trong vòng 30 ngày kể từ ngày
+            mua hàng.
+            Vui lòng liên hệ với chúng tôi để biết thêm chi tiết và hỗ trợ.<br><br>
+            Địa chỉ trả hàng:<br>
+            [Địa chỉ của bạn]<br><br>
+            Điện thoại: [Số điện thoại của bạn]<br>
+            Email: [Địa chỉ email của bạn]
+        </div>
+    </div>
+    <div class="product-reviews">
+        <h3>Customer Reviews</h3>
+        <div id="reviews-list"></div>
+        <h4>Write a Review</h4>
+        <form id="review-form">
+            <label for="rating">Rating:</label>
+            <select id="rating" name="rating">
+                <option value="5">5 stars</option>
+                <option value="4">4 stars</option>
+                <option value="3">3 stars</option>
+                <option value="2">2 stars</option>
+                <option value="1">1 star</option>
+            </select><br>
+    
+            <label for="comment">Comment:</label><br>
+            <textarea id="comment" name="comment" rows="4" cols="50"></textarea><br>
+    
+            <button type="button" onclick="submitReview()">Submit Review</button>
+        </form>
+    </div>
+
+
+    <!-- Your website content goes here -->
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Về Cửa Hàng</h3>
+                <ul>
+                    <li><a href="#">Thông Tin</a></li>
+                    <li><a href="#">Danh Sách Cửa Hàng</a></li>
+                    <li><a href="#">Cơ Hội Nghê Nghiệp</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Trợ giúp</h3>
+                <ul>
+                    <li><a href="#">Hỗ trợ khách hàng</a></li>
+                    <li><a href="#">Chính sách hoàn trả</a></li>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Tài khoản</h3>
+                <ul>
+                    <li><a href="login.html">Đăng nhập</a></li>
+                    <li><a href="signup.css">Đăng ký</a></li>
+                    <li><a href="#">Quản lý tài khoản</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Tài Khoản Xã Hội</h3>
+                <ul class="footer-section">
+                    <li class="facebook"><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                    <li class="instagram"><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                    <li class="youtube"><a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a></li>
+                    <li class="tiktok"><a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Bản tin điện tử</h3>
+                <p>Đăng ký nhận bản tin để cập nhật những thông tin mới nhất.</p>
+                <form action="#">
+                    <input type="email" name="email" placeholder="Nhập địa chỉ email" required>
+                    <button type="submit">Đăng ký</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        function addToCart() {
+            // Retrieve product details
+            const productName = document.querySelector('.product-title').textContent;
+            const selectedSize = document.querySelector('input[name="size"]:checked');
+            const size = selectedSize ? selectedSize.value : '';
+            const quantity = document.getElementById('quantity').value;
+            const price = parseFloat(document.getElementById('product-price').innerText.replace('$', ''));
+
+            // Validate product details
+            if (!size || quantity <= 0) {
+                alert('Please select size and quantity.');
+                return;
+            }
+
+            // Create a cart item object
+            const cartItem = {
+                name: productName,
+                size: size,
+                quantity: quantity,
+                price: price
+            };
+
+            // Get cart items from localStorage or initialize an empty array
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add the item to the cart
+            cart.push(cartItem);
+
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Display a confirmation message (you can customize this)
+            alert('Product added to cart!');
+
+            // Optionally, redirect to the cart page
+            window.location.href = "cart.html";
+        }
+
+        function toggleContent(sectionId) {
+            var allContents = document.querySelectorAll('.collapsible-content');
+            allContents.forEach(function (content) {
+                if (content.id === sectionId) {
+                    content.style.display = (content.style.display === 'none' || content.style.display === '') ? 'block' : 'none';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+        }
+        function submitReview() {
+    const rating = document.getElementById('rating').value;
+    const comment = document.getElementById('comment').value;
+
+    // Kiểm tra xem người dùng đã nhập đủ thông tin chưa
+    if (!rating || !comment) {
+        alert('Please provide a rating and comment.');
+        return;
+    }
+
+    // Lưu trữ đánh giá vào cơ sở dữ liệu hoặc nơi nào đó (chưa được thực hiện trong ví dụ này)
+    saveReviewToDatabase(rating, comment);
+
+    // Hiển thị đánh giá mới
+    displayReviews();
+}
+
+// Hàm này để lưu trữ đánh giá vào cơ sở dữ liệu (giả sử)
+function saveReviewToDatabase(rating, comment) {
+    // Đây là nơi bạn có thể thực hiện việc lưu trữ đánh giá, có thể sử dụng Ajax để gửi dữ liệu lên máy chủ
+    // Trong ví dụ này, chúng ta chỉ hiển thị thông báo đánh giá trong console.
+    console.log(`Rating: ${rating}, Comment: ${comment} - Saved to database`);
+}
+
+// Hàm này để hiển thị danh sách đánh giá
+function displayReviews() {
+    const reviewsList = document.getElementById('reviews-list');
+    
+    // Lấy đánh giá từ cơ sở dữ liệu (giả sử)
+    const reviews = getReviewsFromDatabase();
+
+    // Hiển thị đánh giá trong danh sách
+    reviewsList.innerHTML = '';
+    if (reviews.length === 0) {
+        reviewsList.innerHTML = '<p>No reviews yet.</p>';
+    } else {
+        reviews.forEach(review => {
+            const reviewItem = document.createElement('div');
+            reviewItem.innerHTML = `<p><strong>Rating:</strong> ${review.rating} stars</p><p>${review.comment}</p>`;
+            reviewsList.appendChild(reviewItem);
+        });
+    }
+}
+
+// Hàm này để lấy đánh giá từ cơ sở dữ liệu (giả sử)
+function getReviewsFromDatabase() {
+    // Trả về một mảng các đánh giá (chưa được thực hiện trong ví dụ này)
+    // Trong ứng dụng thực tế, bạn sẽ cần tương tác với máy chủ để lấy dữ liệu đánh giá từ cơ sở dữ liệu.
+    // Trong ví dụ này, chúng ta sẽ giả định rằng đã có dữ liệu đánh giá sẵn có.
+    return [
+        { rating: 5, comment: 'Great product!' },
+        { rating: 4, comment: 'Good quality.' },
+        // Các đánh giá khác...
+    ];
+}
+
+// Gọi hàm để hiển thị đánh giá khi trang được tải
+document.addEventListener("DOMContentLoaded", function () {
+    displayReviews();
+});
+    </script>
+
+  
+
+</body>
+
+</html>

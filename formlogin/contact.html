@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="contact.css">
+    <title>Contact Page</title>
+</head>
+
+<body>
+    <header>
+        <h1>Feedback</h1>
+    </header>
+
+    <main>
+        <div id="contact-form">
+            <form id="myForm" action="#" method="post" onsubmit="submitForm(event)">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+        <div id="thank-you" style="display: none;">
+            <p>Thank you for contacting us! We'll get back to you soon.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Your Company</p>
+    </footer>
+
+    <script src="contact.js"></script>
+</body>
+
+</html>
